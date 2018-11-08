@@ -75,7 +75,7 @@
         android:layout_marginStart="16dp"
         android:ems="10"
         android:hint="@string/curso"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/despacho"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

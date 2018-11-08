@@ -13,11 +13,16 @@ public class MyDBAdapter {
 
     // Definiciones y constantes
     private static final String DATABASE_NAME = "clase.db";
-    private static final String DATABASE_TABLE = "profes";
+    private static final String DATABASE_TABLE_PROFE = "profes";
+    private static final String DATABASE_TABLE_ALUMNO = "alumnos";
     private static final int DATABASE_VERSION = 1;
 
-    private static final String DATABASE_CREATE = "CREATE TABLE "+DATABASE_TABLE+" (_id integer primary key autoincrement, nom text, edad integer,ciclo text,curso integer,despacho integer);";
-    private static final String DATABASE_DROP = "DROP TABLE IF EXISTS "+DATABASE_TABLE+";";
+    private static final String DATABASE_CREATE_PROFE = "CREATE TABLE "+DATABASE_TABLE_PROFE+" (_id integer primary key autoincrement, nom text, edad integer,ciclo text,curso integer,despacho integer);";
+    private static final String DATABASE_CREATE_ALUMNO = "CREATE TABLE "+DATABASE_TABLE_ALUMNO+" (_id integer primary key autoincrement, nom text, edad integer,ciclo text,curso integer,nota_media float);";
+    private static final String DATABASE_DROP_PROFE = "DROP TABLE IF EXISTS "+DATABASE_TABLE_PROFE+";";
+    private static final String DATABASE_DROP_ALUMNO = "DROP TABLE IF EXISTS "+DATABASE_TABLE_ALUMNO+";";
+
+
 
     // Contexto de la aplicación que usa la base de datos
     private final Context context;
@@ -52,7 +57,19 @@ public class MyDBAdapter {
         newValues.put("curso",curso);
         newValues.put("despacho",despacho);
 
-        db.insert(DATABASE_TABLE,null,newValues);
+        db.insert(DATABASE_TABLE_PROFE,null,newValues);
+    }
+    public void insertarAlumno(String nom, int edad,String ciclo,int curso,float nota_media){
+        //Creamos un nuevo registro de valores a insertar
+        ContentValues newValues = new ContentValues();
+        //Asignamos los valores de cada campo
+        newValues.put("nom",nom);
+        newValues.put("edad",edad);
+        newValues.put("ciclo",ciclo);
+        newValues.put("curso",curso);
+        newValues.put("nota_media",nota_media);
+
+        db.insert(DATABASE_TABLE_ALUMNO,null,newValues);
     }
 
     private static class MyDbHelper extends SQLiteOpenHelper {
@@ -63,12 +80,16 @@ public class MyDBAdapter {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            db.execSQL(DATABASE_CREATE);
+            db.execSQL(DATABASE_CREATE_PROFE);
+            db.execSQL(DATABASE_CREATE_ALUMNO);
+
+
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL(DATABASE_DROP);
+            db.execSQL(DATABASE_DROP_PROFE);
+            db.execSQL(DATABASE_DROP_ALUMNO);
             onCreate(db);
         }
 

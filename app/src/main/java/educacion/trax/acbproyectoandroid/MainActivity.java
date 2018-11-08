@@ -50,7 +50,13 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode==1){
             if(resultCode==RESULT_OK){
                 Bundle b=data.getExtras();
-                ClaseEstudiante esttemp=b.getParcelable("est");
+                ClaseEstudiante esttemp=b.getParcelable("estudiante");
+                String nom=esttemp.getNom();
+                int edad= Integer.parseInt(esttemp.getEdad());
+                String ciclo=esttemp.getCiclo();
+                int curso=Integer.parseInt(esttemp.getCurso());
+                Float nota_media=Float.parseFloat(esttemp.getN_m());
+                table.insertarAlumno(nom,edad,ciclo,curso,nota_media);
 
             }
         }

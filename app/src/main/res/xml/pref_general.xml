@@ -24,11 +24,12 @@
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="Fecha de nacimiento" />
-        <EditTextPreference
-            android:defaultValue="Femenino"
-            android:key="sex"
-            android:selectAllOnFocus="true"
-            android:singleLine="true"
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/genero"
+            android:entryValues="@array/genero"
+            android:key="genero"
             android:title="Genero" />
     </PreferenceCategory>
+
 </PreferenceScreen>

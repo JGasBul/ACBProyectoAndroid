@@ -41,10 +41,10 @@ public class SettingsClass extends PreferenceActivity implements SharedPreferenc
             Preference pref_fecha=findPreference(key);
             pref_fecha.setSummary(fecha);
         }
-        if(key.equals("sex")){
-            String sex=sharedPreferences.getString(key,"No seleccionado");
+        if(key.equals("genero")){
+            String genero=sharedPreferences.getString(key,"No seleccionado");
             Preference pref_sex=findPreference(key);
-            pref_sex.setSummary(sex);
+            pref_sex.setSummary(genero);
         }
     }
 }
