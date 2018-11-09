@@ -17,7 +17,7 @@ public class Estudiante extends AppCompatActivity {
 
         final EditText nomET=findViewById(R.id.nom);
         final EditText edadET=findViewById(R.id.edad);
-        final EditText cicloET=findViewById(R.id.ciclo);
+        final EditText cicloET=findViewById(R.id.busqueda);
         final EditText cursoET=findViewById(R.id.cursos);
         final EditText nota_mediaET=findViewById(R.id.nota_media);
         final Button aceptar=(Button) findViewById(R.id.maincra);

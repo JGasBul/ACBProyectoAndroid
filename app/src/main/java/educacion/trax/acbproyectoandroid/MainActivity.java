@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         final Button config=findViewById(R.id.config);
         final Button est=findViewById(R.id.est);
         final Button profe=findViewById(R.id.prof);
+        final Button busquedas=findViewById(R.id.busquedas);
         table.open();
         config.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(i,2);
             }
         });
+        busquedas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),Busquedas.class);
+                startActivity(i);
+            }
+        });
+
 
     }
 

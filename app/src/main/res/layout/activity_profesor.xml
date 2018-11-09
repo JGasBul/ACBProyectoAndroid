@@ -30,7 +30,6 @@
         android:ems="10"
         android:hint="@string/edad"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/ciclo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nom" />
@@ -63,8 +62,7 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/curso" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/curso"

@@ -2,9 +2,12 @@ package educacion.trax.acbproyectoandroid;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
 
 /**
  * Created by jmalberola.
@@ -15,7 +18,7 @@ public class MyDBAdapter {
     private static final String DATABASE_NAME = "clase.db";
     private static final String DATABASE_TABLE_PROFE = "profes";
     private static final String DATABASE_TABLE_ALUMNO = "alumnos";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private static final String DATABASE_CREATE_PROFE = "CREATE TABLE "+DATABASE_TABLE_PROFE+" (_id integer primary key autoincrement, nom text, edad integer,ciclo text,curso integer,despacho integer);";
     private static final String DATABASE_CREATE_ALUMNO = "CREATE TABLE "+DATABASE_TABLE_ALUMNO+" (_id integer primary key autoincrement, nom text, edad integer,ciclo text,curso integer,nota_media float);";
@@ -71,6 +74,65 @@ public class MyDBAdapter {
 
         db.insert(DATABASE_TABLE_ALUMNO,null,newValues);
     }
+
+    public ArrayList<String> recuperarAlumnos(){
+        ArrayList<String> alumnos = new ArrayList<String>();
+        //Recuperamos en un cursor la consulta realizada
+        Cursor cursor = db.query(DATABASE_TABLE_ALUMNO,null,null,null,null,null,null);
+        //Recorremos el cursor
+        if (cursor != null && cursor.moveToFirst()){
+            do{
+                alumnos.add(cursor.getString(1)+" "+cursor.getString(2)+" "+cursor.getString(3)+" "+cursor.getString(4)+" "+cursor.getString(5));
+            }while (cursor.moveToNext());
+        }
+        return alumnos;
+    }
+
+    public ArrayList<String> recuperarAlumnoCiclo(String ciclo){
+        ArrayList<String> alumnos = new ArrayList<String>();
+        //Recuperamos en un cursor la consulta realizada
+        Cursor cursor = db.query(DATABASE_TABLE_ALUMNO,null,null,null,null,null,null);
+        //Recorremos el cursor
+        if (cursor != null && cursor.moveToFirst()){
+            do{
+                String temp=cursor.getString(3);
+                if(temp.trim().equalsIgnoreCase(ciclo)) {
+                    alumnos.add(cursor.getString(1)+" "+cursor.getString(2)+" "+cursor.getString(3)+" "+cursor.getString(4)+" "+cursor.getString(5));
+                }
+            }while (cursor.moveToNext());
+        }
+        return alumnos;
+    }
+
+    public ArrayList<String> recuperarAlumnoCurso(String curso){
+        ArrayList<String> alumnos = new ArrayList<String>();
+        //Recuperamos en un cursor la consulta realizada
+        Cursor cursor = db.query(DATABASE_TABLE_ALUMNO,null,null,null,null,null,null);
+        //Recorremos el cursor
+        if (cursor != null && cursor.moveToFirst()){
+            do{
+                String temp=cursor.getString(4);
+                if(temp.trim().equalsIgnoreCase(curso)) {
+                    alumnos.add(cursor.getString(1)+" "+cursor.getString(2)+" "+cursor.getString(3)+" "+cursor.getString(4)+" "+cursor.getString(5));
+                }
+            }while (cursor.moveToNext());
+        }
+        return alumnos;
+    }
+
+    public ArrayList<String> recuperarProfes(){
+        ArrayList<String> profes = new ArrayList<String>();
+        //Recuperamos en un cursor la consulta realizada
+        Cursor cursor = db.query(DATABASE_TABLE_PROFE,null,null,null,null,null,null);
+        //Recorremos el cursor
+        if (cursor != null && cursor.moveToFirst()){
+            do{
+                profes.add(cursor.getString(1)+" "+cursor.getString(2)+" "+cursor.getString(3)+" "+cursor.getString(4)+" "+cursor.getString(5));
+            }while (cursor.moveToNext());
+        }
+        return profes;
+    }
+
 
     private static class MyDbHelper extends SQLiteOpenHelper {
 

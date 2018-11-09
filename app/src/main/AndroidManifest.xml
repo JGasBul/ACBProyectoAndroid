@@ -20,7 +20,13 @@
             android:name=".SettingsClass"
             android:label="Settings" />
         <activity android:name=".Estudiante" />
-        <activity android:name=".Profesor"></activity>
+        <activity android:name=".Profesor" />
+        <activity android:name=".Busquedas" />
+        <activity android:name=".AllAlum" />
+        <activity android:name=".CicloAllum" />
+        <activity android:name=".CursoAllum" />
+        <activity android:name=".AllProf" />
+        <activity android:name=".todos"></activity>
     </application>
 
 </manifest>

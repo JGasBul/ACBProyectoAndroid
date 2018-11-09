@@ -79,4 +79,12 @@
     <string name="alumnos">Alumnos</string>
     <string name="nota_media">Nota Media</string>
     <string name="enviar">Enviar</string>
+    <string name="busquedas">Busquedas</string>
+    <string name="todos_los_estudiantes">Todos los estudiantes</string>
+    <string name="alumnos_totales">Alumnos totales</string>
+    <string name="busqueda_por_ciclo">Busqueda por ciclo</string>
+    <string name="estudiantes_por_ciclo">Estudiantes por ciclo</string>
+    <string name="estudiantes_por_curso">Estudiantes por curso</string>
+    <string name="todos_los_profesores">Todos los profesores</string>
+    <string name="profesores_totales">Profesores Totales</string>
 </resources>
